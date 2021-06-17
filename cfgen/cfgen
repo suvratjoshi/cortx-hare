@@ -1829,7 +1829,8 @@ def build_cluster(cluster_desc: Dict[str, Any]) -> Cluster:
 
     aux_pools = {}
     for pool in cluster_desc['pools']:
-        parity_group_size = pool['data_units'] + 2 * pool['parity_units']
+        parity_group_size = pool['data_units'] + pool['parity_units'] +
+                            pool['spare_units']
         if len(pool.get('disk_refs', [])) == parity_group_size:
             # more strict requirement, where each node must have only one disk
             # ref and total number of nodes should be equal to
