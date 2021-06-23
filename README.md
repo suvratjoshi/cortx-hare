@@ -60,9 +60,9 @@ and health-checking mechanisms.
   ```
 
 * Install py-utils.
-  ```sh
-  sudo yum -y install cortx-py-utils
-  ```
+
+   Please refer to [the instruction](https://github.com/Seagate/cortx-utils/blob/main/py-utils/README.md) to install corxt-py-utils from sources.
+
 
 * Build and Install Motr.
 
