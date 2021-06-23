@@ -1829,7 +1829,7 @@ def build_cluster(cluster_desc: Dict[str, Any]) -> Cluster:
 
     aux_pools = {}
     for pool in cluster_desc['pools']:
-        parity_group_size = pool['data_units'] + pool['parity_units'] +
+        parity_group_size = pool['data_units'] + pool['parity_units'] +\
                             pool['spare_units']
         if len(pool.get('disk_refs', [])) == parity_group_size:
             # more strict requirement, where each node must have only one disk
@@ -1843,9 +1843,10 @@ def build_cluster(cluster_desc: Dict[str, Any]) -> Cluster:
                                      parity_group_size - pool['parity_units'])
             ]
             aux_pools[pool['name']] = [
-                    {'name':         pool['name'] + f'-aux{i:02}',
+                    {'name':         pool['name'] + f'-aux{i:003}',
                      'data_units':   pool['data_units'] - pool['parity_units'],
                      'parity_units': pool['parity_units'],
+                     'spare_units':  pool['spare_units'],
                      'disk_refs':    comb}
                     for i, comb in enumerate(disk_ref_combinations, start=1)
             ]
