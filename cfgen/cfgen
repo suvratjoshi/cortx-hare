@@ -1185,10 +1185,10 @@ def pool_drives(m0conf: Dict[Oid, Any],
 
     # TODO: coordinate with Motr component, to make sure that it supports the
     #       same storage device to be part of more than one pool
+    
     # if over_referenced:
     #     err = '{} referred to by several pools:'.format(
-    #         'This disk is' if len(over_referenced) == 1 \
-    #                        else 'These disks are')
+    #         'This disk is' if len(over_referenced) == 1 else 'These disks are')
     #     for node_id in sorted(over_referenced):
     #         err += '\n  ' + m0conf[node_id].name
     #         for drive_id in sorted(over_referenced[node_id]):
